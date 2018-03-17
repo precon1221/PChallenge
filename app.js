@@ -127,6 +127,7 @@ function collectStar(player, star){
 	scorenumber.setText(score);
 	star.kill();
 	star.reset(Math.random()*750, 0);
+}
 
 function collectGem(player, gem){
 
