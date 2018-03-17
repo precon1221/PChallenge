@@ -68,11 +68,11 @@ function create(){
 		star.body.gravity.y = 200;
 		star.body.bounce.y = 0.7 + Math.random()*0.2;
 	}
-	
-	gem = game.add.physicsGroup();
-	gem.enableBody = true;
+
+	gems = game.add.physicsGroup();
+	gems.enableBody = true;
 	for(var i = 0; i < 12; i++){
-		var star = stars.create(i*70, 0,'gem');
+		var gem = gems.create(i*70, 0,'gem');
 		gem.body.gravity.y = 200;
 		gem.body.bounce.y = 0.7 + Math.random()*0.2;
 
@@ -87,6 +87,7 @@ function update(){
 	game.physics.arcade.collide(player,platforms);
 	game.physics.arcade.collide(enemy1,platforms);
 	game.physics.arcade.collide(stars,platforms);
+	game.physics.arcade.collide(gems,platforms);
 
 	player.body.velocity.x = 0;
 	if (cursors.left.isDown) {
@@ -105,6 +106,7 @@ function update(){
 	}
 
 	game.physics.arcade.overlap(player, stars, collectStar);
+	game.physics.arcade.overlap(player, gems, collectGem);
 	game.physics.arcade.overlap(player, enemy1, loseLife);
 
 	moveEnemy();
