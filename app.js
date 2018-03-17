@@ -71,7 +71,7 @@ function create(){
 
 	gems = game.add.physicsGroup();
 	gems.enableBody = true;
-	for(var i = 0; i < 12; i++){
+	for(var i = 0; i < 1; i++){
 		var gem = gems.create(i*70, 0,'gem');
 		gem.body.gravity.y = 200;
 		gem.body.bounce.y = 0.7 + Math.random()*0.2;
@@ -136,8 +136,8 @@ function collectGem(player, gem){
 
 	score += 10;
 	scorenumber.setText(score);
-	star.kill();
-	star.reset(Math.random()*750, 0);
+	gem.kill();
+	gem.reset(Math.random()*750, 0);
 
 
 
